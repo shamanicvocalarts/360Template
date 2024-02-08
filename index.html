@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta property="og:image" content="assets/Gorkblorf.png" />
+    <title>360 Video NFT</title>
+    <script src="js/aframe.min.js"></script>
+    <style>
+        body { margin: 0; }
+        .a-canvas { display: block; }
+    </style>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <video id="360video" src="assets/Gorkblorf.mp4" autoplay loop="true" muted crossorigin="anonymous"></video>
+        </a-assets>
+        <!-- Custom Camera with increased FOV -->
+        <a-camera fov="100"></a-camera>
+        <a-videosphere src="#360video"radius="1000"></a-videosphere>
+    </a-scene>
+    <script>
+        document.body.addEventListener('click', function () {
+            var video = document.getElementById('360video');
+            if (video.paused) {
+                video.play();
+            }
+        });
+    </script>
+</body>
+</html>
